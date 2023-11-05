@@ -19,7 +19,7 @@ const Links = [
 const Sidebar: FC = () => {
   return (
     <>
-      <aside className="lg:w-[250px] w-[65px] bg-[#eee] border-l border-gray-300 lg:py-2 py-1 px-3 rounded space-y-3">
+      <aside className="lg:w-[250px] w-[65px] bg-slate-100 border-l border-gray-300 lg:py-2 py-1 px-3 rounded space-y-3">
         <h3 className="text-xl font-semibold text-[#053B50] mb-3 lg:block hidden">
           دسته بندی لیگ ها
         </h3>

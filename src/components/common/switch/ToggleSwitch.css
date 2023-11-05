@@ -1,0 +1,58 @@
+.switch {
+    position: absolute;
+    right: 45%;
+    z-index: 5;
+    top: 45%;
+    background-color: #3a4157;
+    width: 35px;
+    height: 35px;
+    color: #5f6783;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222738;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 2px 2px 5px rgba(255, 255, 255, 0.25);
+  }
+  
+  .toggle {
+    width: 45px;
+    height: 23px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 0.5rem;
+  }
+  .toggle input[type="checkbox"] {
+    display: none;
+  }
+  .toggle input[type="checkbox"]:checked + .slider {
+    background-color: rgb(34,197,134);
+  }
+  .toggle input[type="checkbox"]:checked + .slider .line {
+    left: calc(100% - 19px - 3px);
+  }
+  
+  .toggle-slider {
+    background-color: #656976;
+    position: absolute;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  .toggle-line {
+    position: absolute;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    width: calc(25px - 6px);
+    height: calc(25px - 6px);
+    border-radius: 50%;
+    left: 5px;
+    top: 2px;
+    background-color: #fff;
+  }
