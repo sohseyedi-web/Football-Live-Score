@@ -1,13 +1,45 @@
+@import url("https://v1.fontapi.ir/css/Shabnam");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Shabnam, sans-serif;
 }
 
-body{
-    background-color: #eee;
+body {
+  background-color: #202020;
+  color: #fefefe;
+}
+
+.icon:hover {
+  transition: all .4s ease-in-out;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@layer components {
+  .navBtn {
+    @apply bg-[#26abb8] transition-all duration-300 border-none flex items-center justify-center text-lg font-semibold w-[40px] h-[40px] rounded-full;
+  }
 }
