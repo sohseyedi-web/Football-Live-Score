@@ -11,8 +11,8 @@
 }
 
 body {
-  background-color: #202020;
-  color: #fefefe;
+  background-color: #efefef;
+  color : "#053B50"
 }
 
 .icon:hover {
@@ -40,6 +40,6 @@ body {
 
 @layer components {
   .navBtn {
-    @apply bg-[#26abb8] transition-all duration-300 border-none flex items-center justify-center text-lg font-semibold w-[40px] h-[40px] rounded-full;
+    @apply bg-[#053B50] text-white transition-all duration-300 border-none flex items-center justify-center text-lg font-semibold w-[40px] h-[40px] rounded-full;
   }
 }
