@@ -1,7 +1,6 @@
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Results from "./Results";
 import { getAllMatches } from "./../utils/api";
 
