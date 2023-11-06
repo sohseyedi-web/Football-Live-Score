@@ -1,7 +1,7 @@
-
 export type apiOption = {
   method: string;
   url: string;
+  params?: {date : string};
   headers: {
     "X-Auth-Token": string | any;
     "Content-Type": string | any;
