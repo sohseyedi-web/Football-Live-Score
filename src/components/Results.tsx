@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { matchesType } from "../utils/types";
 import ToggleSwitch from "./common/switch/ToggleSwitch";
 
-const Results: FC = () => {
+const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
   return (
     <section className="lg:w-[70%] w-full mx-auto">
       <header className="flex items-center justify-between bg-slate-100 p-1 rounded-lg">
@@ -17,6 +17,14 @@ const Results: FC = () => {
           </div>
         </div>
       </header>
+      <hr />
+      <div className="">
+        {matchesList?.map((data) => (
+          <div key={data.id}>
+            <p>{data?.homeTeam?.name!}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
