@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import Results from "./Results";
 import { getAllMatches, getMatchesIsFinished } from "./../utils/api";
 import HeaderResults from "./common/HeaderResults";
+import { useFootball } from "../context/FootballProvider";
 
 const Layout = () => {
   const [matches, setMatches] = useState([]);
   const [finishMatch, setFinishMatch] = useState([]);
-  const [dayTime, setDayTime] = useState(false);
+  const { dayTime } = useFootball();
 
   const getData = async () => {
     const data = await getAllMatches();
@@ -21,10 +22,10 @@ const Layout = () => {
   };
 
   useEffect(() => {
-    if (dayTime) {
-      prevGetDate();
-    } else {
+    if (dayTime == "1") {
       getData();
+    } else {
+      prevGetDate();
     }
   }, [dayTime]);
 
@@ -35,9 +36,9 @@ const Layout = () => {
         <Sidebar />
         <main className="flex-1 px-2 py-3">
           <section className="lg:w-[70%] max-w-7xl mx-auto bg-slate-100 p-2">
-            <HeaderResults setDayTime={setDayTime} dayTime={dayTime} />
+            <HeaderResults />
             <hr />
-            <Results matchesList={dayTime === false ? matches : finishMatch} />
+            <Results matchesList={dayTime == "1" ? matches : finishMatch} />
           </section>
         </main>
       </main>

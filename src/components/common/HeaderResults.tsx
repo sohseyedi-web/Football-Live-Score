@@ -1,12 +1,13 @@
+import {
+  useFootball,
+  useFootballDispatch,
+} from "../../context/FootballProvider";
 import ToggleSwitch from "./switch/ToggleSwitch";
 
-const HeaderResults = ({
-  setDayTime,
-  dayTime,
-}: {
-  dayTime: boolean;
-  setDayTime: Function;
-}) => {
+const HeaderResults = () => {
+  const { dayTime } = useFootball();
+  const dispatch = useFootballDispatch();
+
   return (
     <header className="flex items-center justify-between bg-slate-100 py-2 rounded-lg">
       <div className="flex items-center gap-x-2">
@@ -15,9 +16,9 @@ const HeaderResults = ({
         ||
         <div className="w-[150px] rounded-lg text-[#053B50] font-bold border border-green-300">
           <button
-            onClick={() => setDayTime(true)}
+            onClick={() => dispatch({ type: "ACTIVE_DAY", payload: "0" })}
             className={`w-1/2 transition-all duration-300 ${
-              dayTime
+              dayTime == "0"
                 ? "bg-green-600 text-white"
                 : "bg-transparent text-[#053B50]"
             } rounded-r-lg py-1`}
@@ -25,9 +26,10 @@ const HeaderResults = ({
             دیروز
           </button>
           <button
-            onClick={() => setDayTime(false)}
+            onClick={() => dispatch({ type: "ACTIVE_DAY", payload: "1" })}
+
             className={`w-1/2 transition-all duration-300 ${
-              !dayTime
+              dayTime == "1"
                 ? "bg-green-600 text-white"
                 : "bg-transparent text-[#053B50]"
             } rounded-l-lg py-1`}
