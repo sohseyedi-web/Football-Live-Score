@@ -4,13 +4,13 @@ import { matchesType } from "../utils/types";
 const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
   const { liveFootball } = useFootball();
 
-  const filterLive = matchesList?.filter((match) => match.status === "LIVE");
+  const filterLive = matchesList?.filter((match) => match.status === "IN_PLAY");
 
   const resultMatch = liveFootball ? filterLive : matchesList;
 
   return (
     <>
-      {resultMatch.length === 0 ? (
+      {resultMatch?.length === 0 ? (
         <div className="w-full mt-5 text-center text-lg font-semibold text-[#053B50]">
           هیچ مسابقه ای در حال برگزاری نیست
         </div>
@@ -23,6 +23,7 @@ const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
             <p className="w-[10%] text-lg font-semibold text-[#053B50]">
               {new Date(data?.utcDate).toLocaleTimeString("fa-IR").slice(0, -3)}
             </p>
+
             <div className="flex-1 flex items-center justify-center w-[80%]">
               <div className="flex items-center gap-x-2 text-[#053B50] w-[45%]">
                 <img
@@ -38,7 +39,11 @@ const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
                 <span className="text-xl">
                   {data?.score?.fullTime.home ?? 0}
                 </span>
-                -
+                {data?.status === "IN_PLAY" ? (
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                ) : (
+                  "-"
+                )}
                 <span className="text-xl">
                   {data?.score?.fullTime.away ?? 0}
                 </span>

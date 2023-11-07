@@ -12,7 +12,6 @@ const HeaderResults = () => {
     <header className=" bg-slate-100 py-2 rounded-lg space-y-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-1">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
           <h6 className="font-semibold text-[#053B50] text-lg">نتایج زنده</h6>
         </div>
         <p className=" text-sm text-[#053B50]">
