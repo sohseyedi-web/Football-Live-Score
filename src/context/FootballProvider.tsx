@@ -13,7 +13,7 @@ type initial = {
 
 const FootContext = createContext({
   dayTime: "" as string,
-  liveFootball: false as boolean,
+  liveFootball: false as any,
 });
 const FootContextAction = createContext<Dispatch<any> | undefined>(undefined);
 

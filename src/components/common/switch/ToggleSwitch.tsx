@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useFootball, useFootballDispatch } from "../../../context/FootballProvider";
 import './ToggleSwitch.css'
 
 const ToggleSwitch = () => {
-  const [value, setValue] = useState("");
+  const {liveFootball} = useFootball();
+  const dispatch = useFootballDispatch();
 
   return (
     <label className="toggle">
       <input
         type="checkbox"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={liveFootball}
+        checked={liveFootball}
+        onChange={() => dispatch({type : "ACTIVE_LIVE"})}
       />
 
       <div className="toggle-slider slider">
