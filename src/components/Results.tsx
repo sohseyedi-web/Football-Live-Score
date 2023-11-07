@@ -1,12 +1,14 @@
 import { matchesType } from "../utils/types";
 
 const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
+  console.log(matchesList);
+
   return (
     <>
       {matchesList?.map((data) => (
         <div
           key={data.id}
-          className="flex items-center py-1 my-2 border-b border-gray-400 last:border-none"
+          className={`flex items-center py-1 my-2 border-b border-gray-400 last:border-none`}
         >
           <p className="w-[10%] text-lg font-semibold text-[#053B50]">
             {new Date(data?.utcDate).toLocaleTimeString("fa-IR").slice(0, -3)}
