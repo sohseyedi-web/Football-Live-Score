@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Results from "./Results";
 import {
   getAllMatches,
-  getMatchesCL,
   getMatchesIsFinished,
   getMatchesTommorow,
 } from "./../utils/api";
@@ -25,8 +24,6 @@ const Layout = () => {
         setMatches(data?.matches);
       } else if (dayTime === "1") {
         const data = await getAllMatches();
-        const ensasn = await getMatchesCL();
-        console.log(ensasn);
         setMatches(data?.matches);
       } else {
         const data = await getMatchesTommorow();

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { http } from "./http";
 import { apiOption } from "./types";
 
 const todayDate = new Date();
@@ -18,33 +19,16 @@ const nextDay = String(getDateTomorrow.getDate()).padStart(2, "0");
 const yesterday = [preYear, preMonth, preday].join("-");
 const tomorrow = [nextYear, nextMonth, nextDay].join("-");
 
-const basicOption: apiOption = {
-  headers: {
-    "Content-Type": "application/json",
-    "X-Auth-Token": "32a89dcc0a1b444aac822285752adb07",
-  },
-};
 const prevOptions: apiOption = {
   params: { date: yesterday },
-  headers: {
-    "X-Auth-Token": "32a89dcc0a1b444aac822285752adb07",
-    "Content-Type": "application/json",
-  },
 };
 const nextOptions: apiOption = {
   params: { date: tomorrow },
-  headers: {
-    "X-Auth-Token": "32a89dcc0a1b444aac822285752adb07",
-    "Content-Type": "application/json",
-  },
 };
 
 export const getAllMatches = async () => {
   try {
-    const { data } = await axios.get(
-      "https://api.football-data.org/v4/matches",
-      basicOption
-    );
+    const { data } = await http.get("/matches");
     return data;
   } catch (error: any) {
     console.log(error.message);
@@ -53,10 +37,7 @@ export const getAllMatches = async () => {
 
 export const getMatchesIsFinished = async () => {
   try {
-    const { data } = await axios.get(
-      "https://api.football-data.org/v4/matches",
-      prevOptions
-    );
+    const { data } = await http.get("/matches", prevOptions);
     return data;
   } catch (error: any) {
     console.log(error.message);
@@ -64,21 +45,7 @@ export const getMatchesIsFinished = async () => {
 };
 export const getMatchesTommorow = async () => {
   try {
-    const { data } = await axios.get(
-      "https://api.football-data.org/v4/matches",
-      nextOptions
-    );
-    return data;
-  } catch (error: any) {
-    console.log(error.message);
-  }
-};
-export const getMatchesCL = async () => {
-  try {
-    const { data } = await axios.get(
-      "https://api.football-data.org/v4/competitions/CL/matches",
-      basicOption
-    );
+    const { data } = await http.get("/matches", nextOptions);
     return data;
   } catch (error: any) {
     console.log(error.message);

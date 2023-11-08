@@ -1,9 +1,5 @@
 export type apiOption = {
-  params?: {date : string};
-  headers: {
-    "X-Auth-Token": string | any;
-    "Content-Type": string | any;
-  };
+  params?: { date: string };
 };
 
 export type matchesArea = {
