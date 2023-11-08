@@ -26,8 +26,8 @@ const Sidebar: FC = () => {
       <Back />
       <aside
         className={`${
-          activeNavbar ? "w-[250px] right-0 top-0" : "-right-24 w-0 top-0"
-        } lg:relative fixed z-50 h-screen bg-slate-100 text-[#053B50] border-l border-gray-300 py-2 px-3 rounded space-y-3 transition-all duration-300`}
+          activeNavbar ? "w-[250px] right-0 top-0" : "-right-24 w-0 hidden top-0"
+        } lg:relative absolute z-50 h-screen bg-slate-100 text-[#053B50] border-l border-gray-300 py-2 px-3 rounded space-y-3 transition-all duration-300`}
       >
         <h3 className="text-xl font-semibold text-[#053B50] mb-">
           دسته بندی لیگ ها

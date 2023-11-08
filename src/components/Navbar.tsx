@@ -10,7 +10,7 @@ const Navbar: FC = () => {
       <div className="flex items-center justify-between mx-auto px-3">
         <div className="flex items-center gap-x-2 text-[#053B50]">
           <span onClick={() => dispatch({ type: "ACTIVE_NAVBAR" })}>
-            <IoIcon.IoMenuOutline size={26} />
+            <IoIcon.IoMenuOutline size={26} className="cursor-pointer"/>
           </span>
           <IoIcon.IoFootballOutline size={40} />
           <h1 className="text-2xl font-bold md:text-3xl">فوتلایو</h1>

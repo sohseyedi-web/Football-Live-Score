@@ -44,19 +44,19 @@ const Layout = () => {
   }, [dayTime]);
 
   return (
-    <section>
+    <>
       <Navbar />
       <section className="flex ">
         <Sidebar />
-        <main className="flex-1 h-screen overflow-y-auto container p-2 mx-auto">
-          <div className=" bg-slate-100 p-2 rounded-lg lg:w-[80%] max-w-7xl mx-auto">
+        <main className="flex-1 ">
+          <div className=" bg-slate-100 p-2 my-3 rounded-lg lg:w-[80%] max-w-7xl mx-auto">
             <HeaderResults />
             <hr />
             {loading ? <Loading /> : <Results matchesList={matches} />}
           </div>
         </main>
       </section>
-    </section>
+    </>
   );
 };
 
