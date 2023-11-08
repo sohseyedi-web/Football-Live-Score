@@ -8,18 +8,21 @@ import {
 
 type initial = {
   liveFootball: boolean;
+  activeNavbar: boolean;
   dayTime: string;
 };
 
 const FootContext = createContext({
   dayTime: "" as string,
   liveFootball: false as any,
+  activeNavbar: true as any,
 });
 const FootContextAction = createContext<Dispatch<any> | undefined>(undefined);
 
 const initialState: initial = {
   liveFootball: false,
   dayTime: "1",
+  activeNavbar: true,
 };
 
 const footReducer = (state = initialState, action: any) => {
@@ -33,6 +36,11 @@ const footReducer = (state = initialState, action: any) => {
       return {
         ...state,
         dayTime: action.payload,
+      };
+    case "ACTIVE_NAVBAR":
+      return {
+        ...state,
+        activeNavbar: !state.activeNavbar,
       };
 
     default:

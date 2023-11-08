@@ -43,10 +43,10 @@ const Layout = () => {
   return (
     <section className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 flex h-full">
+      <main className="flex">
         <Sidebar />
-        <main className="flex-1 px-2 py-3">
-          <section className="lg:w-[70%] max-w-7xl mx-auto bg-slate-100 p-2">
+        <main className="flex-1 px-2 py-3 h-screen overflow-y-auto">
+          <section className="max-w-7xl mx-auto bg-slate-100 p-2">
             <HeaderResults />
             <hr />
             {loading ? (

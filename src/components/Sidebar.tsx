@@ -6,6 +6,8 @@ import One from "../assets/ligue-1.svg";
 import Seriea from "../assets/Serie_A.svg";
 import Lige from "../assets/liga-portugal.svg";
 import { Link } from "react-router-dom";
+import { useFootball } from "../context/FootballProvider";
+import Back from "./common/Back";
 
 const Links = [
   { id: 1, name: "بوندس لیگا", logo: Bundes },
@@ -17,17 +19,25 @@ const Links = [
 ];
 
 const Sidebar: FC = () => {
+  const { activeNavbar } = useFootball();
+  console.log(activeNavbar);
+
   return (
     <>
-      <aside className="lg:w-[250px] w-[65px] bg-slate-100 border-l border-gray-300 lg:py-2 py-1 px-3 rounded space-y-3">
-        <h3 className="text-xl font-semibold text-[#053B50] mb-3 lg:block hidden">
+      <Back />
+      <aside
+        className={`${
+          activeNavbar ? "w-[250px] right-0 top-0" : "-right-24 w-0 top-0"
+        } lg:relative fixed z-50 h-screen bg-slate-100 text-[#053B50] border-l border-gray-300 py-2 px-3 rounded space-y-3 transition-all duration-300`}
+      >
+        <h3 className="text-xl font-semibold text-[#053B50] mb-">
           دسته بندی لیگ ها
         </h3>
         {Links.map((item) => (
           <Link
             to={"/"}
             key={item.id}
-            className="flex items-center gap-x-2 w-full bg-transparent hover:bg-white transition-all rounded-md px-2"
+            className="flex items-center gap-x-2 w-full text-[#053B50] bg-transparent hover:bg-white transition-all rounded-md px-2"
           >
             <div className="w-16 h-16 flex items-center justify-center rounded-full">
               <img
@@ -36,7 +46,7 @@ const Sidebar: FC = () => {
                 className="w-10 h-10 object-contain rounded-sm"
               />
             </div>
-            <h4 className=" text-[#053B50] font-semibold lg:block hidden">{item.name}</h4>
+            <h4 className=" text-[#053B50] font-semibold">{item.name}</h4>
           </Link>
         ))}
       </aside>
