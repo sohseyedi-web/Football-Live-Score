@@ -9,7 +9,7 @@ const HeaderResults = () => {
   const dispatch = useFootballDispatch();
 
   return (
-    <header className=" bg-slate-100 py-2 rounded-lg space-y-2">
+    <header className=" space-y-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-1">
           <h6 className="font-semibold text-[#053B50] text-lg">نتایج زنده</h6>

@@ -20,7 +20,6 @@ const Links = [
 
 const Sidebar: FC = () => {
   const { activeNavbar } = useFootball();
-  console.log(activeNavbar);
 
   return (
     <>

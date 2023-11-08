@@ -1,7 +1,6 @@
 import axios from "axios";
 import { apiOption } from "./types";
 
-
 const todayDate = new Date();
 const getDateYesterday = new Date(todayDate.getTime());
 const getDateTomorrow = new Date(todayDate.getTime());
@@ -42,7 +41,10 @@ const nextOptions: apiOption = {
 
 export const getAllMatches = async () => {
   try {
-    const { data } = await axios.get("https://api.football-data.org/v4/matches", basicOption);
+    const { data } = await axios.get(
+      "https://api.football-data.org/v4/matches",
+      basicOption
+    );
     return data;
   } catch (error: any) {
     console.log(error.message);
@@ -51,7 +53,10 @@ export const getAllMatches = async () => {
 
 export const getMatchesIsFinished = async () => {
   try {
-    const { data } = await axios.get("https://api.football-data.org/v4/matches", prevOptions);
+    const { data } = await axios.get(
+      "https://api.football-data.org/v4/matches",
+      prevOptions
+    );
     return data;
   } catch (error: any) {
     console.log(error.message);
@@ -59,7 +64,21 @@ export const getMatchesIsFinished = async () => {
 };
 export const getMatchesTommorow = async () => {
   try {
-    const { data } = await axios.get("https://api.football-data.org/v4/matches", nextOptions);
+    const { data } = await axios.get(
+      "https://api.football-data.org/v4/matches",
+      nextOptions
+    );
+    return data;
+  } catch (error: any) {
+    console.log(error.message);
+  }
+};
+export const getMatchesCL = async () => {
+  try {
+    const { data } = await axios.get(
+      "https://api.football-data.org/v4/competitions/CL/matches",
+      basicOption
+    );
     return data;
   } catch (error: any) {
     console.log(error.message);

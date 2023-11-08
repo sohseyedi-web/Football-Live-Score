@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Results from "./Results";
 import {
   getAllMatches,
+  getMatchesCL,
   getMatchesIsFinished,
   getMatchesTommorow,
 } from "./../utils/api";
@@ -14,7 +15,7 @@ import Loading from "./common/Loading";
 const Layout = () => {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { dayTime } = useFootball();
+  const { dayTime, activeNavbar } = useFootball();
 
   const getAllData = async () => {
     setLoading(true);
@@ -24,6 +25,8 @@ const Layout = () => {
         setMatches(data?.matches);
       } else if (dayTime === "1") {
         const data = await getAllMatches();
+        const ensasn = await getMatchesCL();
+        console.log(ensasn);
         setMatches(data?.matches);
       } else {
         const data = await getMatchesTommorow();
@@ -41,22 +44,18 @@ const Layout = () => {
   }, [dayTime]);
 
   return (
-    <section className="flex flex-col min-h-screen">
+    <section>
       <Navbar />
-      <main className="flex">
+      <section className="flex ">
         <Sidebar />
-        <main className="flex-1 px-2 py-3 h-screen overflow-y-auto">
-          <section className="max-w-7xl mx-auto bg-slate-100 p-2">
+        <main className="flex-1 h-screen overflow-y-auto container p-2 mx-auto">
+          <div className=" bg-slate-100 p-2 rounded-lg lg:w-[80%] max-w-7xl mx-auto">
             <HeaderResults />
             <hr />
-            {loading ? (
-              <Loading/>
-            ) : (
-              <Results matchesList={matches} />
-            )}
-          </section>
+            {loading ? <Loading /> : <Results matchesList={matches} />}
+          </div>
         </main>
-      </main>
+      </section>
     </section>
   );
 };
