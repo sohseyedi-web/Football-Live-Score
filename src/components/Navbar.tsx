@@ -1,17 +1,13 @@
 import { FC } from "react";
 import * as IoIcon from "react-icons/io5";
-import { useFootballDispatch } from "./../context/FootballProvider";
 
 const Navbar: FC = () => {
-  const dispatch = useFootballDispatch();
 
   return (
     <nav className="w-full py-4 border-b border-gray-300">
       <div className="flex items-center justify-between mx-auto px-3">
         <div className="flex items-center gap-x-2 text-[#053B50]">
-          <span onClick={() => dispatch({ type: "ACTIVE_NAVBAR" })}>
-            <IoIcon.IoMenuOutline size={26} className="cursor-pointer"/>
-          </span>
+          
           <IoIcon.IoFootballOutline size={40} />
           <h1 className="text-2xl font-bold md:text-3xl">فوتلایو</h1>
         </div>

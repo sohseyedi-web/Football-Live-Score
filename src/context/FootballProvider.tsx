@@ -9,19 +9,19 @@ import {
 type initial = {
   liveFootball: boolean;
   activeNavbar: boolean;
-  dayTime: string;
+  dayTime: number;
 };
 
 const FootContext = createContext({
-  dayTime: "" as string,
-  liveFootball: false as any,
-  activeNavbar: true as any,
+  dayTime: 0 as number,
+  liveFootball: false as boolean,
+  activeNavbar: true as boolean,
 });
-const FootContextAction = createContext<Dispatch<any> | undefined>(undefined);
+const FootContextAction = createContext<Dispatch<any> | null>(null);
 
 const initialState: initial = {
   liveFootball: false,
-  dayTime: "1",
+  dayTime: 0,
   activeNavbar: true,
 };
 

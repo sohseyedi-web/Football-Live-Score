@@ -10,6 +10,7 @@ export type matchesCompetition = {
   id?: number;
   name: string;
   emblem: string;
+  code: string;
 };
 export type matchesHomeTeam = {
   id?: number;

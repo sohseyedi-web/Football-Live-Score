@@ -10,12 +10,12 @@ import { useFootball } from "../context/FootballProvider";
 import Back from "./common/Back";
 
 const Links = [
-  { id: 1, name: "بوندس لیگا", logo: Bundes },
-  { id: 2, name: "لالیگا اسپانیا", logo: laliga },
-  { id: 3, name: "پریمیر لیگ", logo: Premier },
-  { id: 4, name: "لیگ وان فرانسه", logo: One },
-  { id: 5, name: "سری آ ایتالیا", logo: Seriea },
-  { id: 6, name: "لیگا پرتغال", logo: Lige },
+  { id: 1, name: "بوندس لیگا", logo: Bundes,code : "BL1"  },
+  { id: 2, name: "لالیگا اسپانیا", logo: laliga,code : "PD" },
+  { id: 3, name: "پریمیر لیگ", logo: Premier,code : "PL" },
+  { id: 4, name: "لیگ وان فرانسه", logo: One,code : "FL1" },
+  { id: 5, name: "سری آ ایتالیا", logo: Seriea,code : "SA" },
+  { id: 6, name: "لیگا پرتغال", logo: Lige,code : "PPL" },
 ];
 
 const Sidebar: FC = () => {
@@ -33,8 +33,8 @@ const Sidebar: FC = () => {
           دسته بندی لیگ ها
         </h3>
         {Links.map((item) => (
-          <Link
-            to={"/"}
+          <button
+            onClick={() => console.log(item.code)}
             key={item.id}
             className="flex items-center gap-x-2 w-full text-[#053B50] bg-transparent hover:bg-white transition-all rounded-md px-2"
           >
@@ -46,7 +46,7 @@ const Sidebar: FC = () => {
               />
             </div>
             <h4 className=" text-[#053B50] font-semibold">{item.name}</h4>
-          </Link>
+          </button>
         ))}
       </aside>
     </>

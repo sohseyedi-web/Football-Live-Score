@@ -9,8 +9,8 @@ const HeaderResults = () => {
   const dispatch = useFootballDispatch();
 
   return (
-    <header className=" space-y-2 py-2">
-      <div className="flex items-center justify-between">
+    <header className=" space-y-2 py-2 px-1">
+      <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-x-1">
           <h6 className="font-semibold text-[#053B50] text-lg">نتایج زنده</h6>
         </div>
@@ -22,9 +22,9 @@ const HeaderResults = () => {
         <div className="flex items-center gap-x-2">
           <div className="w-[225px] rounded-lg text-[#053B50] font-bold border border-green-300">
             <button
-              onClick={() => dispatch({ type: "ACTIVE_DAY", payload: "0" })}
+              onClick={() => dispatch({ type: "ACTIVE_DAY", payload: -1 })}
               className={`w-1/3 transition-all duration-300 ${
-                dayTime === "0"
+                dayTime == -1
                   ? "bg-green-600 text-white"
                   : "bg-transparent text-[#053B50]"
               } rounded-r-lg py-1`}
@@ -32,9 +32,9 @@ const HeaderResults = () => {
               دیروز
             </button>
             <button
-              onClick={() => dispatch({ type: "ACTIVE_DAY", payload: "1" })}
+              onClick={() => dispatch({ type: "ACTIVE_DAY", payload: 0 })}
               className={`w-1/3 transition-all duration-300 ${
-                dayTime === "1"
+                dayTime == 0
                   ? "bg-green-600 text-white"
                   : "bg-transparent text-[#053B50]"
               }  py-1`}
@@ -42,9 +42,9 @@ const HeaderResults = () => {
               امروز
             </button>
             <button
-              onClick={() => dispatch({ type: "ACTIVE_DAY", payload: "2" })}
+              onClick={() => dispatch({ type: "ACTIVE_DAY", payload: 1 })}
               className={`w-1/3 transition-all duration-300 ${
-                dayTime === "2"
+                dayTime == 1
                   ? "bg-green-600 text-white"
                   : "bg-transparent text-[#053B50]"
               } rounded-l-lg py-1`}
