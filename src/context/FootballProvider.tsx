@@ -12,11 +12,7 @@ type initial = {
   dayTime: number;
 };
 
-const FootContext = createContext({
-  dayTime: 0 as number,
-  liveFootball: false as boolean,
-  activeNavbar: true as boolean,
-});
+const FootContext = createContext(null);
 const FootContextAction = createContext<Dispatch<any> | null>(null);
 
 const initialState: initial = {

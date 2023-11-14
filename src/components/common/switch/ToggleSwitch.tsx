@@ -5,6 +5,7 @@ const ToggleSwitch = () => {
   const {liveFootball} = useFootball();
   const dispatch = useFootballDispatch();
 
+
   return (
     <label className="toggle">
       <input

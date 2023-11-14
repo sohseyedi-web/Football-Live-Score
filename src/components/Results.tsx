@@ -14,7 +14,6 @@ const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
     resultMatch?.filter((res) => res.competition.code === key)
   );
 
-  console.log(leagueResult);
 
   return (
     <>
