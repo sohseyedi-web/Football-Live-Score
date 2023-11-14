@@ -17,7 +17,7 @@ const Layout = () => {
   const getAllData = async () => {
     setLoading(true);
     try {
-      const { data } = await http.get(`/matches?date=${time}`);
+      const { data } = await http.get(`/matches?date=2023-11-12`);
       setMatches(data?.matches)
     } catch (error: any) {
       console.log(error.message);

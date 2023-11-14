@@ -8,13 +8,22 @@ const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
   const filterLive = matchesList?.filter((match) => match.status === "IN_PLAY");
 
   const resultMatch = liveFootball ? filterLive : matchesList;
+  const keyWords = [
+    { id: 2021, code: "PL", name: "پریمیر لیگ" },
+    { id: 2003, code: "DED", name: "اریدیوسه هلند" },
+    { id: 2014, code: "PD", name: "لالیگا اسپانیا" },
+    { id: 2021, code: "ELC", name: "چمپیونشیپ انگلیس" },
+    { id: 2019, code: "SA", name: "سری آ ایتالیا" },
+    { id: 2002, code: "BL1", name: "بوندس لیگا" },
+    { id: 2017, code: "PPL", name: "لیگا پرتغال" },
+    { id: 2015, code: "FL1", name: "لیگ ۱ فرانسه " },
+  ];
 
-  const leageTablePL = resultMatch?.filter(
-    (match) => match.competition.code === "PL"
+  const resoo = keyWords.map((key) =>
+    resultMatch?.filter((res) => res.competition.code === key.code)
   );
-  const leageTableDed = resultMatch?.filter(
-    (match) => match.competition.code === "DED"
-  );
+
+  console.log(resoo);
 
   return (
     <>
@@ -23,10 +32,7 @@ const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
           هیچ مسابقه ای در حال برگزاری نیست
         </div>
       ) : (
-        <>
-          <LeageTable leageTable={leageTablePL} nameLeage={"پریمیر لیگ"} />
-          <LeageTable leageTable={leageTableDed} nameLeage={"اردیویسه هلند "} />
-        </>
+        resoo.map((res) => <LeageTable leageTable={res}/>)
       )}
     </>
   );

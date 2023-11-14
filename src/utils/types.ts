@@ -2,6 +2,7 @@ export type apiOption = {
   params?: { date: string };
 };
 
+
 export type matchesArea = {
   id?: number;
   name: string;
