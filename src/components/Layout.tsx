@@ -1,11 +1,11 @@
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
-import Results from "./Results";
-import HeaderResults from "./common/HeaderResults";
+import HeaderMatches from "./common/HeaderMatches";
 import { useFootball } from "../context/FootballProvider";
 import Loading from "./common/Loading";
 import { http } from "../utils/http";
 import getTime from "./../utils/getDate";
+import LeagueLayout from "./leagueContent/LeagueLayout";
 
 const Layout = () => {
   const [matches, setMatches] = useState([]);
@@ -17,7 +17,7 @@ const Layout = () => {
     setLoading(true);
     try {
       const { data } = await http.get(`/matches?date=${time}`);
-      setMatches(data?.matches)
+      setMatches(data?.matches);
     } catch (error: any) {
       console.log(error.message);
     } finally {
@@ -49,9 +49,9 @@ const Layout = () => {
     <>
       <Navbar />
       <main className="max-w-7xl mx-auto bg-gray-100 my-3 rounded-lg shadow-md">
-        <HeaderResults />
+        <HeaderMatches />
         <hr />
-        {loading ? <Loading /> : <Results matchesList={matches} />}
+        {loading ? <Loading /> : <LeagueLayout matchesList={matches} />}
       </main>
     </>
   );

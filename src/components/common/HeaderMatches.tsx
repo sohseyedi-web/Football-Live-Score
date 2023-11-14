@@ -4,7 +4,7 @@ import {
 } from "../../context/FootballProvider";
 import ToggleSwitch from "./switch/ToggleSwitch";
 
-const HeaderResults = () => {
+const HeaderMatches = () => {
   const { dayTime } = useFootball();
   const dispatch = useFootballDispatch();
 
@@ -62,4 +62,4 @@ const HeaderResults = () => {
   );
 };
 
-export default HeaderResults;
+export default HeaderMatches;

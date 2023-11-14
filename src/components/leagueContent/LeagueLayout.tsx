@@ -1,9 +1,9 @@
-import { useFootball } from "../context/FootballProvider";
-import { matchesType } from "../utils/types";
-import LeagueTable from "./common/LeagueTable";
+import { useFootball } from '../../context/FootballProvider';
+import { matchesType } from '../../utils/types';
+import LeagueTable from './LeagueTable';
 
-const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
-  const { liveFootball } = useFootball();
+const LeagueLayout = ({ matchesList }: { matchesList: matchesType[] }) => {
+    const { liveFootball } = useFootball();
 
   const filterLive = matchesList?.filter((match) => match.status === "IN_PLAY");
 
@@ -13,8 +13,6 @@ const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
   const leagueResult = keyWords.map((key) =>
     resultMatch?.filter((res) => res.competition.code === key)
   );
-
-
   return (
     <>
       {resultMatch?.length === 0 ? (
@@ -25,7 +23,7 @@ const Results = ({ matchesList }: { matchesList: matchesType[] }) => {
         leagueResult.map((res) => <LeagueTable LeagueTable={res} />)
       )}
     </>
-  );
-};
+  )
+}
 
-export default Results;
+export default LeagueLayout
