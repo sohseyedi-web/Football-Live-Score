@@ -1,4 +1,3 @@
-import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import Results from "./Results";

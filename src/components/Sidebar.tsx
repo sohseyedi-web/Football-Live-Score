@@ -5,9 +5,7 @@ import laliga from "../assets/la-liga-2023.svg";
 import One from "../assets/ligue-1.svg";
 import Seriea from "../assets/Serie_A.svg";
 import Lige from "../assets/liga-portugal.svg";
-import { Link } from "react-router-dom";
 import { useFootball } from "../context/FootballProvider";
-import Back from "./common/Back";
 
 const Links = [
   { id: 1, name: "بوندس لیگا", logo: Bundes,code : "BL1"  },
@@ -23,7 +21,6 @@ const Sidebar: FC = () => {
 
   return (
     <>
-      <Back />
       <aside
         className={`${
           activeNavbar ? "w-[250px] right-0 top-0" : "-right-24 w-0 hidden top-0"
