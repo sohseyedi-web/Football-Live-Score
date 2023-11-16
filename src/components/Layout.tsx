@@ -1,33 +1,39 @@
 import Navbar from "./Navbar";
-import { useState, useEffect } from "react";
 import HeaderMatches from "./common/HeaderMatches";
 import { useFootball } from "../context/FootballProvider";
 import Loading from "./common/Loading";
-import { http } from "../utils/http";
 import getTime from "./../utils/getDate";
 import LeagueLayout from "./leagueContent/LeagueLayout";
+import { useQuery } from "@tanstack/react-query";
+import { getMatches } from "../utils/http";
 
 const Layout = () => {
-  const [matches, setMatches] = useState([]);
-  const [loading, setLoading] = useState(false);
   const { dayTime } = useFootball();
   const time = getTime(dayTime);
 
-  const getAllData = async () => {
-    setLoading(true);
-    try {
-      const { data } = await http.get(`/matches?date=${time}`);
-      setMatches(data?.matches);
-    } catch (error: any) {
-      console.log(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { data, isLoading } = useQuery({
+    queryKey: ["getMatches", time],
+    queryFn: () => getMatches(time),
+  });
 
-  useEffect(() => {
-    getAllData();
-  }, [dayTime]);
+
+  
+
+  // const getAllData = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const { data } = await http.get(`/matches?date=${time}`);
+  //     setMatches(data?.matches);
+  //   } catch (error: any) {
+  //     console.log(error.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getAllData();
+  // }, [dayTime]);
 
   // return (
   //   <>
@@ -38,7 +44,7 @@ const Layout = () => {
   //         <div className=" bg-slate-100 p-2 my-3 rounded-lg lg:w-[80%] max-w-7xl mx-auto">
   //           <HeaderResults />
   //           <hr />
-  //           {loading ? <Loading /> : <Results matchesList={matches} />}
+  //           {loading ? <Loading /> : <Results matchesList={data} />}
   //         </div>
   //       </main>
   //     </section>
@@ -51,7 +57,7 @@ const Layout = () => {
       <main className="max-w-7xl mx-auto bg-gray-100 my-3 rounded-lg shadow-md">
         <HeaderMatches />
         <hr />
-        {loading ? <Loading /> : <LeagueLayout matchesList={matches} />}
+        {isLoading ? <Loading /> : <LeagueLayout matchesList={data?.matches} />}
       </main>
     </>
   );
