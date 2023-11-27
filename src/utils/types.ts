@@ -2,6 +2,11 @@ export type apiOption = {
   params?: { date: string };
 };
 
+export type keyLeagues = {
+  key: string;
+  name: string;
+  id: string;
+};
 
 export type matchesArea = {
   id?: number;
