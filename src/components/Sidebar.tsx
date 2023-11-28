@@ -4,6 +4,7 @@ import Back from "./common/Back";
 import * as RiIcon from "react-icons/ri";
 import { useFootballDispatch } from "./../context/FootballProvider";
 import { checkInLeague } from "./../utils/checkInleague";
+import { keyLeagues } from "../utils/types";
 
 const AllLeagues = [
   { key: "PL", name: "لیگ برتر انگلیس", id: "1" },
@@ -27,7 +28,7 @@ const Sidebar: FC = () => {
     item.name.includes(search.toLowerCase())
   );
 
-  const handleLeagueList = (value: any) => {
+  const handleLeagueList = (value: keyLeagues) => {
     if (checkInLeague(keyLeagues, value)) {
       dispatch({ type: "REMOVE_LEAGUES", payload: value.id });
     } else {
@@ -67,9 +68,15 @@ const Sidebar: FC = () => {
           >
             <span className="font-semibold">{item.name}</span>
             {checkInLeague(keyLeagues, item) ? (
-              <RiIcon.RiEyeLine size={24} className="transition-all duration-300"/>
+              <RiIcon.RiEyeLine
+                size={24}
+                className="transition-all duration-300"
+              />
             ) : (
-              <RiIcon.RiEyeCloseLine size={24} className="transition-all duration-300"/>
+              <RiIcon.RiEyeCloseLine
+                size={24}
+                className="transition-all duration-300"
+              />
             )}
           </button>
         ))}

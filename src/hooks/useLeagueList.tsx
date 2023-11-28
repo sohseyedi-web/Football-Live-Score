@@ -5,22 +5,17 @@ import getTime from "../utils/getDate";
 import { getMatches } from "../utils/http";
 import { keyLeagues, matchesType } from "../utils/types";
 
-type LeagueLayoutType = {
-  matchesList: matchesType[];
-  keyLeagues: keyLeagues[];
-};
-
 export const useLeagueList = () => {
-  const [leagueResult, setLeagueResult] = useState<[]>([]);
+  const [leagueResult, setLeagueResult] = useState<matchesType[]>([]);
 
   const { liveFootball, keyLeagues, dayTime } = useFootball();
+  let keyLeagess: keyLeagues[] = [...keyLeagues];
   const time = getTime(dayTime);
 
   const { data, isLoading } = useQuery({
     queryKey: ["getMatches", time],
     queryFn: () => getMatches(time),
   });
-
 
   const filterLive = data?.matches.filter(
     (match: matchesType) => match.status === "IN_PLAY"
@@ -29,13 +24,13 @@ export const useLeagueList = () => {
   const resultMatch = liveFootball ? filterLive : data?.matches;
 
   useEffect(() => {
-    const league = keyLeagues.map((key: keyLeagues) =>
+    const league = keyLeagess.map((key) =>
       resultMatch?.filter(
         (res: matchesType) => res.competition.code === key.key
       )
     );
     setLeagueResult(league);
-  }, [liveFootball, data,keyLeagues]);
+  }, [liveFootball, data, keyLeagues]);
 
   return { leagueResult, isLoading, resultMatch };
 };
