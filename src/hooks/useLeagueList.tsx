@@ -6,7 +6,7 @@ import { getMatches } from "../utils/http";
 import { keyLeagues, matchesType } from "../utils/types";
 
 export const useLeagueList = () => {
-  const [leagueResult, setLeagueResult] = useState<matchesType[]>([]);
+  const [leagueResult, setLeagueResult] = useState<any[]>([]);
 
   const { liveFootball, keyLeagues, dayTime } = useFootball();
   let keyLeagess: keyLeagues[] = [...keyLeagues];

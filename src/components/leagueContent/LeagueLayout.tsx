@@ -4,6 +4,7 @@ import { useLeagueList } from "./../../hooks/useLeagueList";
 const LeagueLayout = () => {
   const { leagueResult, resultMatch } = useLeagueList();
 
+
   return (
     <>
       {resultMatch?.length === 0 || leagueResult?.length === 0 ? (
