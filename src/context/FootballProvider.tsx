@@ -54,12 +54,12 @@ const footReducer = (state = initialState, action: any) => {
     case "ADD_LEAGUES":
       return {
         ...state,
-        leagues: [...state.keyLeagues, action.payload],
+        keyLeagues: [...state.keyLeagues, action.payload],
       };
     case "REMOVE_LEAGUES":
       return {
         ...state,
-        leagues: state.keyLeagues.filter((item) => item.id !== action.payload),
+        keyLeagues: state.keyLeagues.filter((item) => item.id !== action.payload),
       };
 
     default:
