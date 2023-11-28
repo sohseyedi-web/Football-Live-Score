@@ -23,7 +23,7 @@ const LeagueTable = ({ LeagueTable }: { LeagueTable: matchesType[] }) => {
                       alt={data?.homeTeam?.name}
                       className="lg:w-8 lg:h-8 h-6 w-6 object-contain"
                     />
-                    <h3 className="md:text-lg text-sm font-semibold text-[#053B50]">
+                    <h3 className="md:text-lg text-[10px] font-semibold text-[#053B50]">
                       {data?.homeTeam?.name
                         .replace("FC", "")
                         .replace("Portugal", "")}
@@ -43,7 +43,7 @@ const LeagueTable = ({ LeagueTable }: { LeagueTable: matchesType[] }) => {
                     </span>
                   </div>
                   <div className="flex items-center justify-end gap-x-2 text-[#053B50] w-[48%]">
-                    <h3 className="md:text-lg text-sm font-semibold">
+                    <h3 className="md:text-lg text-[10px] font-semibold">
                       {data?.awayTeam?.name
                         .replace("FC", "")
                         .replace("Portugal", "")}

@@ -12,7 +12,7 @@ const LeagueHeader = ({leagueTable} : {leagueTable : matchesType[]}) => {
         src={leagueTable[0]?.competition.emblem}
         alt={t(leagueTable[0]?.competition.name)}
       />
-      <h3 className="text-white">{t(leagueTable[0]?.competition.name)}</h3>
+      <h3 className="text-white lg:text-base text-sm">{t(leagueTable[0]?.competition.name)}</h3>
     </header>
   );
 };
