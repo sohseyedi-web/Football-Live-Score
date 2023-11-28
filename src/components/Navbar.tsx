@@ -1,5 +1,6 @@
 import { FC } from "react";
 import * as IoIcon from "react-icons/io5";
+import { RiGithubLine } from "react-icons/ri";
 import { useFootballDispatch } from "../context/FootballProvider";
 
 const Navbar: FC = () => {
@@ -12,6 +13,7 @@ const Navbar: FC = () => {
           <IoIcon.IoFootballOutline size={40} />
           <h1 className="text-2xl font-bold md:text-3xl">فوتلایو</h1>
         </div>
+
         <div className="flex items-center justify-center gap-x-2">
           <button
             onClick={() => dispatch({ type: "ACTIVE_NAVBAR" })}
@@ -20,7 +22,12 @@ const Navbar: FC = () => {
             <IoIcon.IoSettingsOutline size={26} />
           </button>
           <button className="navBtn icon">
-            <IoIcon.IoNotificationsOutline size={26} />
+            <a
+              href="https://github.com/sohseyedi-web/Football-Live-Score"
+              target={"_blank"}
+            >
+              <RiGithubLine size={26} />
+            </a>
           </button>
         </div>
       </div>
