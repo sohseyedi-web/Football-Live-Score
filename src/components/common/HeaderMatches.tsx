@@ -12,7 +12,7 @@ const HeaderMatches = () => {
     <header className=" space-y-2 py-2 px-1">
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-x-1">
-          <h6 className="font-semibold text-[#053B50] text-lg">نتایج زنده</h6>
+          <h6 className="font-semibold text-[#053B50] lg:text-lg text-base">نتایج زنده</h6>
         </div>
         <p className=" text-sm text-[#053B50]">
           {new Date().toLocaleDateString("fa-IR")}
@@ -20,7 +20,7 @@ const HeaderMatches = () => {
       </div>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
-          <div className="w-[225px] rounded-lg text-[#053B50] font-bold border border-green-300">
+          <div className="lg:w-[225px] w-[180px] rounded-lg text-[#053B50] lg:text-base text-sm font-bold border border-green-300">
             <button
               onClick={() => dispatch({ type: "ACTIVE_DAY", payload: -1 })}
               className={`w-1/3 transition-all duration-300 ${
@@ -54,7 +54,7 @@ const HeaderMatches = () => {
           </div>
         </div>
         <div className="flex items-center">
-          <span className="ml-3 font-semibold"> مسابقات زنده</span>
+          <span className="ml-3 font-semibold lg:text-base text-sm"> مسابقات زنده</span>
           <ToggleSwitch />
         </div>
       </div>
